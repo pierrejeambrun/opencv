@@ -476,14 +476,21 @@ void SurfFeaturesFinder::find(InputArray image, ImageFeatures &features)
     }
 }
 
-SiftFeaturesFinder::SiftFeaturesFinder()
+SiftFeaturesFinder::SiftFeaturesFinder(int nfeatures, int nOctaveLayers,
+                                    double contrastThreshold, double edgeThreshold,
+                                    double sigma)
 {
 #ifdef HAVE_OPENCV_XFEATURES2D
-    Ptr<SIFT> sift_ = SIFT::create();
+    Ptr<SIFT> sift_ = SIFT::create(nfeatures, nOctaveLayers, contrastThreshold, edgeThreshold, sigma);
     if( !sift_ )
         CV_Error( Error::StsNotImplemented, "OpenCV was built without SIFT support" );
     sift = sift_;
 #else
+    (void)nfeatures;
+    (void)nOctaveLayers;
+    (void)contrastThreshold;
+    (void)edgeThreshold;
+    (void)sigma;
     CV_Error( Error::StsNotImplemented, "OpenCV was built without SIFT support" );
 #endif
 }

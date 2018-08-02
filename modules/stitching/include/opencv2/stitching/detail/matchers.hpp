@@ -145,7 +145,9 @@ private:
 class CV_EXPORTS SiftFeaturesFinder : public FeaturesFinder
 {
 public:
-    SiftFeaturesFinder();
+    SiftFeaturesFinder(int nfeatures = 0, int nOctaveLayers = 3,
+                       double contrastThreshold = 0.04, double edgeThreshold = 10,
+                       double sigma = 1.6);
 
 private:
     void find(InputArray image, ImageFeatures &features) CV_OVERRIDE;
