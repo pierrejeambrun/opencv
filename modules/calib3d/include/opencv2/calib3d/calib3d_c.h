@@ -144,9 +144,9 @@ CVAPI(int) cvFindHomography( const CvMat* src_points,
                              const CvMat* dst_points,
                              CvMat* homography,
                              int method CV_DEFAULT(0),
-                             double ransacReprojThreshold CV_DEFAULT(3),
+                             double ransacReprojThreshold CV_DEFAULT(2),
                              CvMat* mask CV_DEFAULT(0),
-                             int maxIters CV_DEFAULT(2000),
+                             int maxIters CV_DEFAULT(20000),
                              double confidence CV_DEFAULT(0.995));
 
 /* Computes RQ decomposition for 3x3 matrices */

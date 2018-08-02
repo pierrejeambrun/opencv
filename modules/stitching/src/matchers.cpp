@@ -43,6 +43,7 @@
 #include "precomp.hpp"
 
 #include "opencv2/core/opencl/ocl_defs.hpp"
+#include <iostream>
 
 using namespace cv;
 using namespace cv::detail;
@@ -190,9 +191,10 @@ void CpuMatcher::match(const ImageFeatures &features1, const ImageFeatures &feat
     matches_info.matches.clear();
 
     Ptr<cv::DescriptorMatcher> matcher;
-#if 0 // TODO check this
+#if 1 // TODO check this
     if (ocl::isOpenCLActivated())
     {
+        std::cout << "Running the BFMatcher with NORM_L2" << std::endl;
         matcher = makePtr<BFMatcher>((int)NORM_L2);
     }
     else

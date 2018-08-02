@@ -373,8 +373,8 @@ getAffineTransform, estimateAffine2D, estimateAffinePartial2D, getPerspectiveTra
 perspectiveTransform
  */
 CV_EXPORTS_W Mat findHomography( InputArray srcPoints, InputArray dstPoints,
-                                 int method = 0, double ransacReprojThreshold = 3,
-                                 OutputArray mask=noArray(), const int maxIters = 2000,
+                                 int method = 0, double ransacReprojThreshold = 2,
+                                 OutputArray mask=noArray(), const int maxIters = 20000,
                                  const double confidence = 0.995);
 
 /** @overload */
